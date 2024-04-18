@@ -18,14 +18,19 @@ for index, row in dfc.iterrows():
     hcode = row['hcode']
     hmain = row['hmain']
     count = dfc[(dfc['hmain_op'] == hmain_op) & (dfc['hcode'] == hcode)].shape[0]
-    res.append((hmain, hmain_op, hcode, count))
+    res.append((hmain_op, hcode, count, hmain))
 ures = []
 for item in res:
     if item not in ures:
         ures.append(item)
 
-dfx = pd.DataFrame(ures, columns=['hmain','hmain_op','hcode','count'])
+dfx = pd.DataFrame(ures, columns=['hmain_op','hcode','count','hmain'])
 dfxp = dfx.pivot_table(values='count', index='hmain_op', columns='hcode',fill_value=0)
+
+print(dfx)
+
+
+'''
 
 column_titles = dfxp.columns
 row_titles = dfxp.index
@@ -43,7 +48,6 @@ chord_diagram(dflor, names=hs, order=None, sort="size", directed=True,
                   fontcolor="k", rotate_names=True, ax=None, show=False)
 plt.show()
 
-'''
 all = list(set(column_titles).union(set(row_titles)))
 all.sort
 afall = pd.DataFrame(all, columns=['hmain_op'])
