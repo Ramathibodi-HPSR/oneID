@@ -8,7 +8,9 @@ SELECT
     visits.prov1,
     visits.pdx,
     hosmap.sub_type_name,
-    hosmap.nhso_zonename
+    hosmap.nhso_zonename,
+    visits.p_visit_year,
+    visits.p_visit_month
 FROM
     rama_one_id.all_oppp_visits_processed visits
 LEFT JOIN
