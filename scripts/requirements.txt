@@ -1,0 +1,21 @@
+# Utilities
+pandas
+tabulate
+openpyxl
+tqdm
+
+# GIS
+geopandas
+geopy
+rasterio
+
+# Analysis
+scikit-learn
+statsmodels
+pymc
+
+# Visualization
+matplotlib
+shapely
+seaborn
+folium
